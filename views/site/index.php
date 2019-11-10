@@ -9,7 +9,9 @@ $this->title = 'My Yii Application';
 ?>
 
 <div class="">
-    <?= Html::img('@web/images/first.jpg', ['alt'=>'dick', 'style width'=>'100%']);?>
+
+    <p><?= Html::a(Html::img('@web/images/first.jpg', ['alt'=>'dick', 'style width'=>'100%']), ['/places']) ?></p>
+
 </div>
 
 

@@ -18,21 +18,10 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'delete' => [''],
                 ],
             ],
         ];
@@ -64,6 +53,18 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function beforeAction($action)
+    {
+        if (parent::beforeAction($action)) {
+            if (!\Yii::$app->user->can($action->id)) {
+                //throw new ForbiddenHttpException('Access denied');
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * Login action.
      *
@@ -84,6 +85,7 @@ class SiteController extends Controller
         return $this->render('login', [
             'model' => $model,
         ]);
+
     }
 
     /**
