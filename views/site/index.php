@@ -5,7 +5,7 @@ use yii\web\UploadedFile;
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Project2';
 ?>
 
 <div class="">
