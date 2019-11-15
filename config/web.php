@@ -45,13 +45,18 @@ $config = [
                 ],
             ],
         ],
+
         'db' => $db,
 
         'urlManager' => [
             'enablePrettyUrl' => true,
-   //         'enableStrictParsing' => true,
+            //'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
+                'rest/get-id/<id:\d+>' => 'rest/get-id',
+                'rest/get-region/<region:.*>' => 'rest/get-region',
+                'rest/get-index/<number:\w+>' => 'rest/get-index',
+                'rest/get-country/<country:.*>' => 'rest/get-country'
             ],
         ],
 
