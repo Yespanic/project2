@@ -11,6 +11,7 @@ use Yii;
  * @property string $country
  * @property string $region
  * @property string $city
+ * @property string $place
  * @property int $number
  */
 class Places extends \yii\db\ActiveRecord
@@ -29,9 +30,9 @@ class Places extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['country', 'region', 'city', 'number'], 'required'],
+            [['country', 'region', 'city', 'number', 'place'], 'required'],
             [['number'], 'integer'],
-            [['country', 'region', 'city'], 'string', 'max' => 255],
+            [['country', 'region', 'city', 'place'], 'string', 'max' => 255],
         ];
     }
 
@@ -45,6 +46,7 @@ class Places extends \yii\db\ActiveRecord
             'country' => 'Country',
             'region' => 'Region',
             'city' => 'City',
+            'place' => 'Place',
             'number' => 'Number',
         ];
     }
