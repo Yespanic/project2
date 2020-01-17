@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\components\StringTools;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -123,8 +124,17 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionAbout()
+    public function actionAbout($string)
     {
-        return $this->render('about');
+        $result = StringTools::convertWordsToNumber($string);
+
+        return $this->render('about', ['string' => $result]);
+    }
+
+    public function actionConvertNumber($string)
+    {
+        $result = StringTools::convertWordsToNumber($string);
+
+        return $this->asJson($result);
     }
 }

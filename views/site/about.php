@@ -8,9 +8,13 @@ use yii\web\UploadedFile;
 $this->title = 'Project2';
 ?>
 
-<div class="">
+<?=(isset($string) ? $string : '')?>
 
-    <p><?= Html::a(Html::img('@web/images/first.jpg', ['alt'=>'dick', 'style width'=>'100%']), ['/places']) ?></p>
+<div class="">
+    <form action="<?=\yii\helpers\Url::toRoute(['site/form'])?>">
+        <input type="text" name="string">
+        <input type="submit" value="submit">
+    </form>
 
 </div>
 
